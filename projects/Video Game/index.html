@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Cards</title>
+    <style>
+        #canvas{
+            border:solid;
+        }
+    </style>
+  </head>
+  <body>
+  <canvas id = "canvas" height = "590" width = "1345">
+  </canvas>
+  <img id="tree" src="/tree.jpeg" hidden>
+  <img id="skull" src="/skull.jpeg" hidden>
+  <script>
+      setInterval(update,50)
+      var rectPosX = 0;
+      var rectPosY = 0;
+      var downPress = false;
+      var upPress = false;
+      var leftPress = false;
+      var rightPress = false;
+      var speedX = 0;
+      var speedY = 0;
+      var canvas = document.getElementById("canvas");
+      var skull = document.getElementById("skull");
+      var ctx = canvas.getContext("2d");
+      var listTrees = [];
+      for(var i = 0; i < 5; i++){
+          listTrees.push({
+              x:Math.random()*canvas.width,
+              y:Math.random()*canvas.height,
+              width:10,
+              height:10,
+              treesSpeedX: 1,
+              treesSpeedY: 1,
+          })
+      }
+        document.addEventListener("keydown", keyDownHandler, false);
+        document.addEventListener("keyup", keyUpHandler, false);
+        function keyDownHandler(e) {
+        if(e.key == "ArrowDown") {
+        downPress = true;
+    }
+        if(e.key == "ArrowUp"){
+        upPress = true;
+    }
+        if(e.key == "ArrowLeft"){
+        leftPress = true;
+        }
+        if(e.key == "ArrowRight"){
+            rightPress = true;
+        }
+}   
+        function keyUpHandler(e) {
+        if(e.key == "ArrowDown") {
+        downPress = false;
+    }
+        if(e.key == "ArrowUp"){
+        upPress = false;
+    }
+        if(e.key == "ArrowLeft"){
+            leftPress = false;
+        }
+        if(e.key == "ArrowRight"){
+            rightPress = false;
+        }
+}   
+        function edgeCheck(){
+             if(rectPosX < 0 - 100){
+                rectPosX = canvas.width;
+            }
+            if(rectPosX > canvas.width){
+                rectPosX = 0;
+            }
+            if(rectPosY < 0 - 100){
+                rectPosY = canvas.height;
+            }
+            if(rectPosY > canvas.height){
+                rectPosY = 0;
+            }
+        }
+        function speedCheck(){
+            if (downPress){
+                speedY = speedY + 1;
+            }
+            if (upPress){
+                speedY = speedY - 1;
+            }
+            if (leftPress){
+                speedX = speedX - 1;
+            }
+            if (rightPress){
+                speedX = speedX + 1;
+            }
+        }
+        function update(){
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            for(var i = 0; i < listTrees.length; i++){
+                ctx.fillRect(listTrees[i].x, listTrees[i].y, listTrees[i].width, listTrees[i].height)
+                listTrees[i].x = listTrees[i].x + listTrees[i].treesSpeedX;
+                listTrees[i].y = listTrees[i].y + listTrees[i].treesSpeedY;
+            }
+            var my_gradient = ctx.createLinearGradient(canvas.width, canvas.height, 0, 0);
+            my_gradient.addColorStop(0, "red");
+            my_gradient.addColorStop(1, "black");
+            ctx.fillStyle = my_gradient;
+            edgeCheck()
+            rectPosX = rectPosX + speedX;
+            rectPosY = rectPosY + speedY;
+            ctx.fillRect(rectPosX, rectPosY,100,100)
+            ctx.drawImage (skull, rectPosX, rectPosY, 100, 100);
+            speedCheck()
+        }
+  </script>
+  </body>
+</html>
