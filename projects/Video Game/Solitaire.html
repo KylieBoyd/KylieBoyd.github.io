@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta charset="UTF-8">
+    <title>Solitaire</title>
+    </head>
+    <body>
+        <canvas id = "canvas" height = "750" width = "1075">
+        </canvas>
+        <div>
+        <img id = "Adiamond" src = "/Adiamond.jpeg" hidden>
+        <img id = "2diamond" src = "/2diamond.jpeg" hidden>
+        <img id = "3diamond" src = "/3diamond.jpeg" hidden>
+        <img id = "4diamond" src = "/4diamond.jpeg" hidden>
+        <img id = "5diamond" src = "/5diamond.jpeg" hidden>
+        <img id = "6diamond" src = "/6diamond.jpeg" hidden>
+        <img id = "7diamond" src = "/7diamond.jpeg" hidden>
+        <img id = "8diamond" src = "/8diamond.jpeg" hidden>
+        <img id = "9diamond" src = "/9diamond.jpeg" hidden>
+        <img id = "10diamond" src = "/10diamond.jpeg" hidden>
+        <img id = "Jdiamond" src = "/Jdiamond.jpeg" hidden>
+        <img id = "Qdiamond" src = "/Qdiamond.jpeg" hidden>
+        <img id = "Kdiamond" src = "/Kdiamond.jpeg" hidden>
+        <img id = "Aheart" src = "/Aheart.jpeg" hidden>
+        <img id = "2heart" src = "/2heart.jpeg" hidden>
+        <img id = "3heart" src = "/3heart.jpeg" hidden>
+        <img id = "4heart" src = "/4heart.jpeg" hidden>
+        <img id = "5heart" src = "/5heart.jpeg" hidden>
+        <img id = "6heart" src = "/6heart.jpeg" hidden>
+        <img id = "7heart" src = "/7heart.jpeg" hidden>
+        <img id = "8heart" src = "/8heart.jpeg" hidden>
+        <img id = "9heart" src = "/9heart.jpeg" hidden>
+        <img id = "10heart" src = "/10heart.jpeg" hidden>
+        <img id = "Jheart" src = "/Jheart.jpeg" hidden>
+        <img id = "Qheart" src = "/Qheart.jpeg" hidden>
+        <img id = "Kheart" src = "/Kheart.jpeg" hidden>
+        <img id = "Aspade" src = "/Aspade.jpeg" hidden>
+        <img id = "2spade" src = "/2spade.jpeg" hidden>
+        <img id = "3spade" src = "/3spade.jpeg" hidden>
+        <img id = "4spade" src = "/4spade.jpeg" hidden>
+        <img id = "5spade" src = "/5spade.jpeg" hidden>
+        <img id = "6spade" src = "/6spade.jpeg" hidden>
+        <img id = "7spade" src = "/7spade.jpeg" hidden>
+        <img id = "8spade" src = "/8spade.jpeg" hidden>
+        <img id = "9spade" src = "/9spade.jpeg" hidden>
+        <img id = "10spade" src = "/10spade.jpeg" hidden>
+        <img id = "Jspade" src = "/Jspade.jpeg" hidden>
+        <img id = "Qspade" src = "/Qspade.jpeg" hidden>
+        <img id = "Kspade" src = "/Kspade.jpeg" hidden>
+        <img id = "Aclub" src = "/Aclub.jpeg" hidden>
+        <img id = "2club" src = "/2club.jpeg" hidden>
+        <img id = "3club" src = "/3club.jpeg" hidden>
+        <img id = "4club" src = "/4club.jpeg" hidden>
+        <img id = "5club" src = "/5club.jpeg" hidden>
+        <img id = "6club" src = "/6club.jpeg" hidden>
+        <img id = "7club" src = "/7club.jpeg" hidden>
+        <img id = "8club" src = "/8club.jpeg" hidden>
+        <img id = "9club" src = "/9club.jpeg" hidden>
+        <img id = "10club" src = "/10club.jpeg" hidden>
+        <img id = "Jclub" src = "/Jclub.jpeg" hidden>
+        <img id = "Qclub" src = "/Qclub.jpeg" hidden>
+        <img id = "Kclub" src = "/Kclub.jpeg" hidden>
+        <img id = "cardBack" src = "/cardBack.jpeg" hidden>
+        <img id = "diamond" src = "/diamond.jpeg" hidden>
+        <img id = "heart" src = "/heart.jpeg" hidden>
+        <img id = "spade" src = "/spade.jpeg" hidden>
+        <img id = "club" src = "/club.jpeg" hidden>
+    </div>
+        <script>
+            var deck = [
+                {suit:"diamond",value:"ace",img:document.getElementById("Adiamond")},
+                {suit:"diamond",value:"second",img:document.getElementById("2diamond")},
+                {suit:"diamond",value:"third",img:document.getElementById("3diamond")},
+                {suit:"diamond",value:"fourth",img:document.getElementById("4diamond")},
+                {suit:"diamond",value:"fifth",img:document.getElementById("5diamond")},
+                {suit:"diamond",value:"sixth",img:document.getElementById("6diamond")},
+                {suit:"diamond",value:"seventh",img:document.getElementById("7diamond")},
+                {suit:"diamond",value:"eighth",img:document.getElementById("8diamond")},
+                {suit:"diamond",value:"ninth",img:document.getElementById("9diamond")},
+                {suit:"diamond",value:"tenth",img:document.getElementById("10diamond")},
+                {suit:"diamond",value:"jack",img:document.getElementById("Jdiamond")},
+                {suit:"diamond",value:"queen",img:document.getElementById("Qdiamond")},
+                {suit:"diamond",value:"king",img:document.getElementById("Kdiamond")},
+                {suit:"heart",value:"ace",img:document.getElementById("Aheart")},
+                {suit:"heart",value:"second",img:document.getElementById("2heart")},
+                {suit:"heart",value:"third",img:document.getElementById("3heart")},
+                {suit:"heart",value:"fourth",img:document.getElementById("4heart")},
+                {suit:"heart",value:"fifth",img:document.getElementById("5heart")},
+                {suit:"heart",value:"sixth",img:document.getElementById("6heart")},
+                {suit:"heart",value:"seventh",img:document.getElementById("7heart")},
+                {suit:"heart",value:"eighth",img:document.getElementById("8heart")},
+                {suit:"heart",value:"ninth",img:document.getElementById("9heart")},
+                {suit:"heart",value:"tenth",img:document.getElementById("10heart")},
+                {suit:"heart",value:"jack",img:document.getElementById("Jheart")},
+                {suit:"heart",value:"queen",img:document.getElementById("Qheart")},
+                {suit:"heart",value:"king",img:document.getElementById("Kheart")},
+                {suit:"spade",value:"ace",img:document.getElementById("Aspade")},
+                {suit:"spade",value:"second",img:document.getElementById("2spade")},
+                {suit:"spade",value:"third",img:document.getElementById("3spade")},
+                {suit:"spade",value:"fourth",img:document.getElementById("4spade")},
+                {suit:"spade",value:"fifth",img:document.getElementById("5spade")},
+                {suit:"spade",value:"sixth",img:document.getElementById("6spade")},
+                {suit:"spade",value:"seventh",img:document.getElementById("7spade")},
+                {suit:"spade",value:"eighth",img:document.getElementById("8spade")},
+                {suit:"spade",value:"ninth",img:document.getElementById("9spade")},
+                {suit:"spade",value:"tenth",img:document.getElementById("10spade")},
+                {suit:"spade",value:"jack",img:document.getElementById("Jspade")},
+                {suit:"spade",value:"queen",img:document.getElementById("Qspade")},
+                {suit:"spade",value:"king",img:document.getElementById("Kspade")},
+                {suit:"club",value:"ace",img:document.getElementById("Aclub")},
+                {suit:"club",value:"second",img:document.getElementById("2club")},
+                {suit:"club",value:"third",img:document.getElementById("3club")},
+                {suit:"club",value:"fourth",img:document.getElementById("4club")},
+                {suit:"club",value:"fifth",img:document.getElementById("5club")},
+                {suit:"club",value:"sixth",img:document.getElementById("6club")},
+                {suit:"club",value:"seventh",img:document.getElementById("7club")},
+                {suit:"club",value:"eighth",img:document.getElementById("8club")},
+                {suit:"club",value:"ninth",img:document.getElementById("9club")},
+                {suit:"club",value:"tenth",img:document.getElementById("10club")},
+                {suit:"club",value:"jack",img:document.getElementById("Jclub")},
+                {suit:"club",value:"queen",img:document.getElementById("Qclub")},
+                {suit:"club",value:"king",img:document.getElementById("Kclub")}];
+            var deckLength = deck.length;
+            var i = 0
+            var downPress = false;
+            var upPress = false;
+            var leftPress = false;
+            var rightPress = false;
+            document.addEventListener("keydown", keyDownHandler, false);
+            document.addEventListener("keyup", keyUpHandler, false);
+            function keyDownHandler(e) {
+        if(e.key == "ArrowDown") {
+        downPress = true;
+    }
+        if(e.key == "ArrowUp"){
+        upPress = true;
+    }
+        if(e.key == "ArrowLeft"){
+        leftPress = true;
+        }
+        if(e.key == "ArrowRight"){
+            rightPress = true;
+        }
+}   
+            function keyUpHandler(e) {
+        if(e.key == "ArrowDown") {
+        downPress = false;
+    }
+        if(e.key == "ArrowUp"){
+        upPress = false;
+    }
+        if(e.key == "ArrowLeft"){
+            leftPress = false;
+        }
+        if(e.key == "ArrowRight"){
+            rightPress = false;
+        }
+}   
+            shuffleDeck()
+            var listAces = [
+                {suit:"diamond",value:"ace",img:document.getElementById("Adiamond")},
+                {suit:"heart",value:"ace",img:document.getElementById("Aheart")},
+                {suit:"spade",value:"ace",img:document.getElementById("Aspade")},
+                {suit:"club",value:"ace",img:document.getElementById("Aclub")}];
+            var columnOne = [{}];
+            var columnTwo = [{}];
+            var columnThree = [{}];
+            var columnFour = [{}];
+            var columnFive = [{}];
+            var columnSix = [{}];
+            var columnSeven = [{}];
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            setInterval(update, 250)
+            function update(){
+                background()
+                select()
+                cardSpots()
+                ctx.drawImage(deck[i].img,175,25,125,175)
+                i++
+            }
+            function background(){
+                var my_gradient = ctx.createLinearGradient(canvas.width, canvas.height, 0, 0);
+                my_gradient.addColorStop(1/6,'purple');
+                my_gradient.addColorStop(2/6,'blue');
+                my_gradient.addColorStop(3/6,'green');
+                my_gradient.addColorStop(4/6,'yellow');
+                my_gradient.addColorStop(5/6,'orange');
+                my_gradient.addColorStop(1,"red");
+                ctx.fillStyle = my_gradient;
+                ctx.fillRect(0 , 0, canvas.width, canvas.height)
+            }
+            function cardSpots(){
+                ctx.fillStyle = "white";
+                ctx.drawImage(cardBack, 25 , 25, 125, 175)
+                ctx.fillRect(175, 25, 125, 175)
+                ctx.fillRect(475, 25, 125, 175)
+                ctx.drawImage(diamond, 475, 25, 125, 175)
+                ctx.fillRect(625, 25, 125, 175)
+                ctx.drawImage(heart, 625, 25, 125, 175)
+                ctx.fillRect(775, 25, 125, 175)
+                ctx.drawImage(spade, 775, 25, 125, 175)
+                ctx.fillRect(925, 25, 125, 175)
+                ctx.drawImage(club, 925, 25, 125, 175)
+                ctx.drawImage(cardBack, 25, 250, 125, 175)
+                ctx.drawImage(cardBack, 175, 250, 125, 175)
+                ctx.drawImage(cardBack, 325, 250, 125, 175)
+                ctx.drawImage(cardBack, 475, 250, 125, 175)
+                ctx.drawImage(cardBack, 625, 250, 125, 175)
+                ctx.drawImage(cardBack, 775, 250, 125, 175)
+                ctx.drawImage(cardBack, 925, 250, 125, 175)
+                ctx.fillStyle = "Lightgray"
+                ctx.drawImage(cardBack, 175, 300, 125, 175)
+                ctx.drawImage(cardBack, 325, 300, 125, 175)
+                ctx.drawImage(cardBack, 475, 300, 125, 175)
+                ctx.drawImage(cardBack, 625, 300, 125, 175)
+                ctx.drawImage(cardBack, 775, 300, 125, 175)
+                ctx.drawImage(cardBack, 925, 300, 125, 175)
+                ctx.fillStyle = "silver"
+                ctx.drawImage(cardBack, 325, 350, 125, 175)
+                ctx.drawImage(cardBack, 475, 350, 125, 175)
+                ctx.drawImage(cardBack, 625, 350, 125, 175)
+                ctx.drawImage(cardBack, 775, 350, 125, 175)
+                ctx.drawImage(cardBack, 925, 350, 125, 175)
+                ctx.fillStyle = "Darkgray"
+                ctx.drawImage(cardBack, 475, 400, 125, 175)
+                ctx.drawImage(cardBack, 625, 400, 125, 175)
+                ctx.drawImage(cardBack, 775, 400, 125, 175)
+                ctx.drawImage(cardBack, 925, 400, 125, 175)
+                ctx.fillStyle = "gray"
+                ctx.drawImage(cardBack, 625, 450, 125, 175)
+                ctx.drawImage(cardBack, 775, 450, 125, 175)
+                ctx.drawImage(cardBack, 925, 450, 125, 175)
+                ctx.fillStyle = "Dimgray"
+                ctx.drawImage(cardBack, 775, 500, 125, 175)
+                ctx.drawImage(cardBack, 925, 500, 125, 175)
+                ctx.fillStyle = "black"
+                ctx.drawImage(cardBack, 925, 550, 125, 175)
+            }
+            function shuffleDeck(){
+                while(deckLength > 0){
+                    var randomCard = Math.floor(Math.random()*deckLength)
+		            deckLength = deckLength - 1
+	            	var temp = deck[deckLength]
+	            	deck[deckLength] = deck[randomCard]
+	            	deck[randomCard] = temp
+                }
+            }
+            function moveCards(){
+            }
+            function select(){
+                ctx.fillStyle = "teal"
+                ctx.fillRect(25-1,250-1,125+4,175+4)
+                if (downPress){
+                    ctx.clearRect(25-1,250-1,125+4,175+4)
+                    ctx.fillRect(24,249+50,129,179)
+            }
+                if (upPress){
+                    ctx.clearRect(25-1,250-1,125+4,175+4)
+                    ctx.fillRect(24,249-50,129,179)
+            }
+                if (leftPress){
+                    ctx.clearRect(25-1,250-1,125+4,175+4)
+                    ctx.fillRect(24-150,249,129,179)
+                }
+                if (rightPress){
+                    ctx.clearRect(25-1,250-1,125+4,175+4)
+                    ctx.fillRect(24+150,249,129,179)
+            }
+        }
+        </script>
+    </body>
+</html>

@@ -14,6 +14,7 @@
   </canvas>
   <img id="tree" src="/tree.jpeg" hidden>
   <img id="skull" src="/skull.jpeg" hidden>
+  <img id="skull2" src="/skull2.jpeg" hidden>
   <script>
       setInterval(update,50)
       var rectPosX = 0;
@@ -28,14 +29,14 @@
       var skull = document.getElementById("skull");
       var ctx = canvas.getContext("2d");
       var listTrees = [];
-      for(var i = 0; i < 5; i++){
+      for(var i = 0; i < 186; i++){
           listTrees.push({
               x:Math.random()*canvas.width,
               y:Math.random()*canvas.height,
-              width:10,
-              height:10,
-              treesSpeedX: 1,
-              treesSpeedY: 1,
+              width:50,
+              height:50,
+              treesSpeedX: Math.random()*39-13,
+              treesSpeedY: Math.random()*39-13,
           })
       }
         document.addEventListener("keydown", keyDownHandler, false);
@@ -99,12 +100,29 @@
         function update(){
             ctx.clearRect(0, 0, canvas.width, canvas.height)
             for(var i = 0; i < listTrees.length; i++){
-                ctx.fillRect(listTrees[i].x, listTrees[i].y, listTrees[i].width, listTrees[i].height)
+                ctx.drawImage(skull2, listTrees[i].x, listTrees[i].y, listTrees[i].width, listTrees[i].height)
                 listTrees[i].x = listTrees[i].x + listTrees[i].treesSpeedX;
                 listTrees[i].y = listTrees[i].y + listTrees[i].treesSpeedY;
+                if(listTrees[i].x <= 0){
+                    listTrees[i].treesSpeedX = -listTrees[i].treesSpeedX;
+                }
+                if(listTrees[i].x >= canvas.width){
+                     listTrees[i].treesSpeedX = -listTrees[i].treesSpeedX;
+                }
+                if(listTrees[i].y <= 0){
+                    listTrees[i].treesSpeedY = -listTrees[i].treesSpeedY;
+                }
+                if(listTrees[i].y >= canvas.height){
+                    listTrees[i].treesSpeedY = -listTrees[i].treesSpeedY;
+                }
             }
             var my_gradient = ctx.createLinearGradient(canvas.width, canvas.height, 0, 0);
             my_gradient.addColorStop(0, "red");
+            my_gradient.addColorStop(1 / 6, 'orange');
+            my_gradient.addColorStop(2 / 6, 'yellow');
+            my_gradient.addColorStop(3 / 6, 'green');
+            my_gradient.addColorStop(4 / 6, 'blue');
+            my_gradient.addColorStop(5 / 6, 'purple');
             my_gradient.addColorStop(1, "black");
             ctx.fillStyle = my_gradient;
             edgeCheck()

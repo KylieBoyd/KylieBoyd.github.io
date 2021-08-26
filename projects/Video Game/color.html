@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    </head>
+    <body>
+
+    </body>
+    <canvas width = "349" height = "200" id = "canvas"></canvas>
+    <script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var x = 0;
+    var offset = 0;
+    setInterval(update, 1)
+    function update(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        if(offset > 360){
+            offset = 0;
+        }
+        x = x + offset;
+        offset = offset + 1;
+    for(var i = 0; i < canvas.height; i++){
+        for(var j = 0; j < canvas.width; j++){
+            if(x > 360){
+                x = 0
+            }
+            ctx.fillStyle = "hsl(" + x + ",100%,50%)"
+            ctx.fillRect(j*10, i*10, 10, 10)
+            x = x + 1;
+        }
+    }
+    }
+    </script>
+</html>

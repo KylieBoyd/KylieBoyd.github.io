@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+    </body>
+    <canvas width = "450" height = "450" id = "canvas"></canvas>
+    <script>
+         var canvas = document.getElementById("canvas");
+         var ctx = canvas.getContext("2d");
+         setInterval(update, 50);
+         function update(){
+             ctx.fillStyle = "turquoise"
+             ctx.fillRect(0, 0, canvas.width, canvas.height)
+             for(var i = 0; i < 4; i++){
+                 for(var j = 0; j < 4; j++){
+                     ctx.fillStyle = "aqua"
+                     ctx.fillRect(j*110 + 10, i*110 + 10, 100, 100)
+                 }
+             }
+         }
+    </script>
+</html>

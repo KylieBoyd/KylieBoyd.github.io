@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>runtime
+    </title>
+    <style>
+        img{
+            display:none;
+        }
+    </style>
+  </head>
+  <body>
+    <canvas id='canvas' width='500' height="500"></canvas>
+    <img id='halle' src='halle-v9.png'>
+
+    <script>
+        var canvas = document.getElementById("canvas")
+        var ctx = canvas.getContext('2d')
+        var halle = document.getElementById("halle")
+        setInterval(main,50) 
+
+        var cropX = 596
+        var cropY = 1467 
+        var cropHeight = 117
+        var cropWidth = 71
+		var destinationWidth = 71
+		var destinationHeight = 117
+        var destinationX = 0 
+        var destinationY = 0 
+
+
+        function main(){
+            ctx.clearRect(0,0,1000,1000)
+            ctx.drawImage(halle, cropX, cropY, cropWidth, cropHeight, destinationX, destinationY, destinationWidth, destinationHeight)
+            //https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
+            ctx.fillStyle = "black"
+            ctx.fillRect(100, 60, 50, 50)
+		}
+
+   
+
+    </script>
+  </body>
+</html>
