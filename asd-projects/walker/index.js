@@ -16,8 +16,17 @@ function runProgram(){
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
-
+  $(document).on('eventType', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
+ var KEY = {
+   "RIGHT":39,
+   "LEFT":37,
+   "DOWN":40,
+   "UP":38
+ };
+ var boxXPosition = 0;
+ var boxYPosition = 0;
+ var boxXspeed = 0;
+ var boxYspeed = 0;
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -34,14 +43,25 @@ function runProgram(){
   /* 
   Called in response to events.
   */
-  function handleEvent(event) {
-
+  function handleKeyDown(event) {
+    if (event.which === KEY.LEFT) {
+      console.log("Left pressed");
+    }
+    if (event.which === KEY.RIGHT) {
+      console.log("Right pressed");
+    }
+    if (event.which === KEY.UP) {
+      console.log("Up pressed");
+    }
+    if (event.which === KEY.DOWN) {
+      console.log("Down pressed");
+    }
   }
-
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-
+  repositionGameItem()
+  redrawGameItem()
   
   function endGame() {
     // stop the interval timer

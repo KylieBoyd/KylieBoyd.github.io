@@ -56,6 +56,6 @@ function rgbStringToArray(rgbStr) {
 }
 
 // this function converts an array into an RGB string
-function rgbArrayToString(rgbArray) {
+function rgbArrayToString(rgbArray,rgbNumbers) {
     return "rgb("+rgbArray[RED]+","+rgbArray[GREEN]+","+rgbArray[BLUE]+")"
 }

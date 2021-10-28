@@ -17,7 +17,17 @@ $(document).ready(function(){
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2 & 4: Create the applyFilter function here
-
+function applyFilter (){
+    for (var i = 0; i < 17; i++){
+        for (var r = 0; r < 17; r++){
+            var rgbString = image[11];
+            var rgbNumbers = rgbStringToArray(rgbString) = [ RED, GREEN, BLUE];
+            rgbNumbers[RED] = 225;
+            rgbNumbers[Green] = 0;
+            rgbNumbers[Blue] = 75;
+        }
+    }
+}
 
 // TODO 6: Create the applyFilterNoBackground function
 
