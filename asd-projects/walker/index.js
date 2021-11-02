@@ -13,20 +13,21 @@ function runProgram(){
   
   // Game Item Objects
 
-
+ var boxXPosition = 0;
+ var boxYPosition = 0;
+ var boxXspeed = 0;
+ var boxYspeed = 0;
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('eventType', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
- var KEY = {
+  $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
+  $(document).on('keyup', handleKeyUp);
+  var KEY = {
    "RIGHT":39,
    "LEFT":37,
    "DOWN":40,
    "UP":38
  };
- var boxXPosition = 0;
- var boxYPosition = 0;
- var boxXspeed = 0;
- var boxYspeed = 0;
+
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -36,8 +37,8 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
-
+    repositiongameItem()
+    redrawgameItem()
   }
   
   /* 
@@ -45,23 +46,43 @@ function runProgram(){
   */
   function handleKeyDown(event) {
     if (event.which === KEY.LEFT) {
-      console.log("Left pressed");
+      boxXspeed = -5;
     }
-    if (event.which === KEY.RIGHT) {
-      console.log("Right pressed");
+    else if (event.which === KEY.RIGHT) {
+      boxXspeed = 5;
     }
-    if (event.which === KEY.UP) {
-      console.log("Up pressed");
+    else if (event.which === KEY.UP) {
+      boxYspeed = -5;
     }
-    if (event.which === KEY.DOWN) {
-      console.log("Down pressed");
+    else if (event.which === KEY.DOWN) {
+      boxYspeed = 5;
+    }
+  }
+  function handleKeyUp(event) {
+    if (event.which === KEY.LEFT) {
+      boxXspeed = 0;
+    }
+    else if (event.which === KEY.RIGHT) {
+      boxXspeed = 0;
+    }
+    else if (event.which === KEY.UP) {
+      boxYspeed = 0;
+    }
+    else if (event.which === KEY.DOWN) {
+      boxYspeed = 0;
     }
   }
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-  repositionGameItem()
-  redrawGameItem()
+  function repositiongameItem(){
+    boxXPosition += boxXspeed;
+    boxYPosition += boxYspeed;
+  }
+  function redrawgameItem(){
+    $("#gameItem").css("left", boxXPosition);
+    $("#gameItem").css("top", boxYPosition);
+  }
   
   function endGame() {
     // stop the interval timer
