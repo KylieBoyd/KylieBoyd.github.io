@@ -1,0 +1,7 @@
+Pong is where two people each control one paddle on a screen. They can only stay on their half of the screen and can only move up and down. There is a dotted line down the middle of the screen. There is a ball that is continuasly moving across the screen. The ball can bounce off of the paddles, but if it hits the wall on one side then the other side gets a point. The game is over after one player gets a certain amount of points.
+The ball starts in the middle and the paddles start in the middle of the screen, but not like the middle middle, like the middle of the sides.
+The game ends when one player gets 11 points. They would get a you win screen and then play again.
+If the ball hits the wall +1 to the player of the opposite wall.
+I promise this makes sense in my head.
+You will need two paddles that move at the same speed. There has to be a dotted line in the middle for decoration. A moving ball that moves a one speed and can collide with the paddles.
+You need positions for everything and speed for everything but the dotted line. People would hate you if it moved. I wanna make it move.
