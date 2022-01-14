@@ -10,7 +10,66 @@ body {
   background-color: black;
   position: relative;
 }
-
+#ball {
+  /* appearance */
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  
+  /* positioning */
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+#playerOneScore {
+  /* appearance */
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  
+  /* positioning */
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+#playerTwoScore {
+  /* appearance */
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  
+  /* positioning */
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+#paddleOne {
+  /* appearance */
+  background-color: aqua;
+  width: 20px;
+  height: 80px;
+  border-radius: 20px;
+  
+  /* positioning */
+  position: absolute;
+  top: 100px;
+  left: 410px;
+}
+#paddleTwo {
+  /* appearance */
+  background-color: purple;
+  width: 20px;
+  height: 80px;
+  border-radius: 20px;
+  
+  /* positioning */
+  position: absolute;
+  top: 100px;
+  left: 10px;
+}
 #gameItem {
   background-color: teal;
   width: 50px;

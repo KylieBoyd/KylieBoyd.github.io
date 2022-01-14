@@ -99,6 +99,7 @@
         }
         function update(){
             ctx.clearRect(0, 0, canvas.width, canvas.height)
+            background()
             for(var i = 0; i < listTrees.length; i++){
                 ctx.drawImage(skull2, listTrees[i].x, listTrees[i].y, listTrees[i].width, listTrees[i].height)
                 listTrees[i].x = listTrees[i].x + listTrees[i].treesSpeedX;
@@ -132,6 +133,17 @@
             ctx.drawImage (skull, rectPosX, rectPosY, 100, 100);
             speedCheck()
         }
+        function background(){
+                var my_gradient = ctx.createLinearGradient(canvas.width, canvas.height, 0, 0);
+                my_gradient.addColorStop(1/6,'purple');
+                my_gradient.addColorStop(2/6,'blue');
+                my_gradient.addColorStop(3/6,'green');
+                my_gradient.addColorStop(4/6,'yellow');
+                my_gradient.addColorStop(5/6,'orange');
+                my_gradient.addColorStop(1,"red");
+                ctx.fillStyle = my_gradient;
+                ctx.fillRect(0 , 0, canvas.width, canvas.height)
+            }
   </script>
   </body>
 </html>
